@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { Video, Calendar, ArrowRight, Star, CheckCircle2, Sparkles, MessageSquare } from "lucide-react";
 
 export default function Hero() {
-    const containerVariants = {
+    const containerVariants: any = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -13,16 +13,16 @@ export default function Hero() {
         }
     };
 
-    const itemVariants = {
+    const itemVariants: any = {
         hidden: { opacity: 0, y: 15 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+            transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
-    const floatingVariants = {
+    const floatingVariants: any = {
         animate: {
             y: [0, -8, 0],
             transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
