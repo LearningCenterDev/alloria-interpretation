@@ -113,7 +113,7 @@ export default function Footer() {
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            Design & Development by <a href="https://www.press1.dev" target="_blank" className="text-white hover:text-brand-primary transition-colors">Press1</a>
+                            Design & Development by <a href="https://www.press1.dev" target="_blank" className="text-white hover:text-brand-primary transition-colors">Press1 Technologies</a>
                         </div>
                     </div>
                 </div>
