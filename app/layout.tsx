@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { CustomCursor } from "@/components/custom-cursor";
+// import { CustomCursor } from "@/components/custom-cursor";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Alloria | Professional Interpretation Services",
   description: "Breaking language barriers instantly with professional interpretation services for healthcare, legal, and business.",
 };
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,
@@ -28,10 +31,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${plusJakartaSans.variable} font-sans antialiased text-slate-800 bg-[#F8FAFC]`}
+        className={`${plusJakartaSans.variable} font-sans antialiased text-slate-800 bg-[#F8FAFC] flex flex-col min-h-screen`}
       >
-        <CustomCursor />
-        {children}
+        <Navbar />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

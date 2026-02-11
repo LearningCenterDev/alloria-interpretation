@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Languages, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,22 +21,36 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-        e.preventDefault();
-        const element = document.querySelector(id);
-        if (element) {
-            const offset = scrolled ? 80 : 100;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
+    const navItems = [
+        { name: "Services", href: "/services" },
+        { name: "About Us", href: "/about-us" },
+        { name: "How It Works", href: "/#how-it-works" },
+        { name: "Contact", href: "/contact-us" },
+    ];
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.startsWith("/#") && pathname === "/") {
+            e.preventDefault();
+            const id = href.replace("/#", "#");
+            const element = document.querySelector(id);
+            if (element) {
+                const offset = scrolled ? 80 : 100;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+            setIsMobileMenuOpen(false);
+        } else if (href === pathname) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setIsMobileMenuOpen(false);
         }
-        setIsMobileMenuOpen(false);
     };
 
     return (
@@ -51,9 +69,9 @@ export default function Navbar() {
                 }}
                 transition={{
                     type: "spring",
-                    stiffness: 380, // High stiffness for speed and "snap"
-                    damping: 32, // Balanced damping for no oscillation
-                    mass: 0.6 // Light enough to feel fast
+                    stiffness: 380,
+                    damping: 32,
+                    mass: 0.6
                 }}
                 className={cn(
                     "pointer-events-auto flex flex-col border-white/40",
@@ -65,10 +83,15 @@ export default function Navbar() {
                     !scrolled && "max-w-7xl"
                 )}>
                     {/* Logo */}
-                    <motion.div
-                        layout
+                    <Link
+                        href="/"
                         className="flex items-center gap-2.5 cursor-pointer custom-hover group"
-                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                        onClick={(e) => {
+                            if (pathname === "/") {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                        }}
                     >
                         <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-primary/20 transition-transform group-hover:scale-105 group-active:scale-95">
                             <Languages size={20} />
@@ -76,34 +99,35 @@ export default function Navbar() {
                         <span className="font-bold text-xl tracking-tight text-slate-900">
                             Alloria
                         </span>
-                    </motion.div>
+                    </Link>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-10">
                         <div className="flex items-center gap-10">
-                            {["Services", "How It Works", "About"].map((item, i) => (
-                                <motion.a
-                                    key={item}
-                                    layout
-                                    href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                    onClick={(eContent: React.MouseEvent<HTMLAnchorElement>) => scrollToSection(eContent, `#${item.toLowerCase().replace(/\s+/g, '-')}`)}
-                                    className="text-[13px] font-bold text-slate-600 hover:text-brand-primary transition-colors relative group cursor-pointer tracking-wide"
+                            {navItems.filter(item => item.name !== "Contact").map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={(e) => handleNavClick(e, item.href)}
+                                    className={cn(
+                                        "text-[13px] font-bold transition-colors relative group cursor-pointer tracking-wide",
+                                        pathname === item.href ? "text-brand-primary" : "text-slate-600 hover:text-brand-primary"
+                                    )}
                                 >
-                                    {item}
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all group-hover:w-full" />
-                                </motion.a>
+                                    {item.name}
+                                    <span className={cn(
+                                        "absolute -bottom-1 left-0 h-0.5 bg-brand-primary transition-all",
+                                        pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                                    )} />
+                                </Link>
                             ))}
                         </div>
-                        <motion.a
-                            layout
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            href="#contact"
-                            onClick={(eContact: React.MouseEvent<HTMLAnchorElement>) => scrollToSection(eContact, "#contact")}
+                        <Link
+                            href="/contact-us"
                             className="px-6 py-2 bg-brand-primary hover:bg-emerald-600 text-white text-[13px] font-black rounded-xl shadow-md shadow-brand-primary/20 transition-all cursor-pointer uppercase tracking-widest"
                         >
-                            Get Started
-                        </motion.a>
+                            Book Now
+                        </Link>
                     </div>
 
                     {/* Mobile Toggle */}
@@ -126,23 +150,29 @@ export default function Navbar() {
                             className="overflow-hidden md:hidden"
                         >
                             <div className="pt-2 pb-6 flex flex-col gap-3 bg-white px-4 rounded-b-3xl">
-                                {["Services", "How It Works", "About"].map((item) => (
-                                    <a
-                                        key={item}
-                                        href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                        onClick={(e) => scrollToSection(e, `#${item.toLowerCase().replace(/\s+/g, '-')}`)}
-                                        className="px-4 py-3 text-base font-semibold text-slate-700 hover:text-brand-primary hover:bg-slate-50 rounded-xl transition-all border border-transparent hover:border-slate-100 cursor-pointer flex items-center justify-between"
+                                {navItems.filter(item => item.name !== "Contact").map((item) => (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        onClick={(e) => {
+                                            handleNavClick(e, item.href);
+                                            setIsMobileMenuOpen(false);
+                                        }}
+                                        className={cn(
+                                            "px-4 py-3 text-base font-semibold rounded-xl transition-all border border-transparent cursor-pointer flex items-center justify-between",
+                                            pathname === item.href ? "text-brand-primary bg-emerald-50" : "text-slate-700 hover:text-brand-primary hover:bg-slate-50 hover:border-slate-100"
+                                        )}
                                     >
-                                        {item}
-                                    </a>
+                                        {item.name}
+                                    </Link>
                                 ))}
-                                <a
-                                    href="#contact"
-                                    onClick={(e) => scrollToSection(e, "#contact")}
+                                <Link
+                                    href="/contact-us"
+                                    onClick={() => setIsMobileMenuOpen(false)}
                                     className="w-full py-3 mt-2 bg-brand-primary text-white text-center font-bold rounded-xl shadow-lg cursor-pointer text-sm uppercase tracking-widest"
                                 >
                                     Book Now
-                                </a>
+                                </Link>
                             </div>
                         </motion.div>
                     )}
