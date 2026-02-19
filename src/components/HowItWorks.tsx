@@ -1,139 +1,156 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
-import { Globe, ShieldCheck, Zap, UserCheck, ArrowRight, Languages, Mic2, BrainCircuit } from "lucide-react";
+import Link from "next/link";
+import {
+    Globe,
+    BrainCircuit,
+    Mic2,
+    ArrowRight,
+    Sparkles,
+    Zap
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function HowItWorks() {
     const steps = [
         {
-            icon: <Globe size={20} />,
-            title: "Select Service Mode",
-            desc: "Choose from Video, Phone, or On-Site depending on your requirements.",
-            color: "text-blue-500",
-            bg: "bg-blue-50"
+            icon: <Globe size={22} />,
+            title: "Select Mode",
+            desc: "Choose Video, Phone, or On-Site based on your needs.",
+            color: "text-blue-600",
+            bg: "bg-blue-50 border-blue-100",
+            shadow: "hover:shadow-blue-100"
         },
         {
-            icon: <BrainCircuit size={20} />,
-            title: "Linguist Matching",
-            desc: "Our AI-powered system finds the perfect certified interpreter for your niche.",
-            color: "text-purple-500",
-            bg: "bg-purple-50"
+            icon: <BrainCircuit size={22} />,
+            title: "Smart Match",
+            desc: "AI instantly finds the perfect certified linguist.",
+            color: "text-purple-600",
+            bg: "bg-purple-50 border-purple-100",
+            shadow: "hover:shadow-purple-100"
         },
         {
-            icon: <Mic2 size={20} />,
-            title: "Instant Connection",
-            desc: "Connect in less than 30 seconds for a seamless communication experience.",
-            color: "text-brand-primary",
-            bg: "bg-emerald-50"
+            icon: <Zap size={22} />,
+            title: "Start Talking",
+            desc: "Connect in <30s. Clear, encrypted, professional.",
+            color: "text-emerald-600",
+            bg: "bg-emerald-50 border-emerald-100",
+            shadow: "hover:shadow-emerald-100"
         }
     ];
 
+    const containerVariants: any = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15 }
+        }
+    };
+
+    const itemVariants: any = {
+        hidden: { opacity: 0, y: 15 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" }
+        }
+    };
+
     return (
         <section id="how-it-works" className="py-16 bg-white relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            {/* Subtle Background */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-50 via-white to-white opacity-80" />
+            </div>
 
-                    <div className="relative order-2 lg:order-1">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="relative rounded-[2.5rem] overflow-hidden shadow-xl border-[6px] border-slate-50 ring-1 ring-slate-100 group"
-                        >
-                            <div className="relative h-[450px] lg:h-[550px] w-full overflow-hidden">
-                                <Image
-                                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=90"
-                                    alt="Modern Team"
-                                    fill
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-                            </div>
+            <div className="max-w-5xl mx-auto px-6 relative z-10">
 
-                            {/* Status Interactive Badge */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.5 }}
-                                className="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg flex items-center gap-3 border border-slate-100 z-20"
-                            >
-                                <div className="relative">
-                                    <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-brand-primary">
-                                        <UserCheck size={18} />
-                                    </div>
-                                    <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#2FBF71] border-2 border-white animate-pulse" />
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-black text-slate-800 uppercase tracking-wide">Live Linguist</p>
-                                    <div className="flex items-center gap-1.5 mt-0.5">
-                                        <div className="flex gap-0.5">
-                                            {[1, 2, 3].map(i => <div key={i} className="w-0.5 h-1.5 bg-brand-primary/40 rounded-full animate-bounce" style={{ animationDelay: `${i * 100}ms` }} />)}
-                                        </div>
-                                        <p className="text-[9px] font-bold text-slate-400">Audio Sync: Online</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </motion.div>
+                {/* Compact Header */}
+                <div className="text-center mb-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/5 border border-brand-primary/10 mb-4"
+                    >
+                        <Sparkles size={12} className="text-brand-primary" />
+                        <span className="text-brand-primary font-black uppercase text-[10px] tracking-[0.2em]">Workflow</span>
+                    </motion.div>
 
-                        {/* Background Polish */}
-                        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-primary/5 rounded-full blur-[80px] -z-10 animate-pulse" />
-                    </div>
-
-                    <div className="order-1 lg:order-2">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="inline-flex items-center gap-2 mb-4">
-                                <span className="h-px w-8 bg-brand-primary/30" />
-                                <h2 className="text-brand-primary font-black uppercase text-[10px] tracking-[0.4em]">The Protocol</h2>
-                            </div>
-                            <h3 className="text-3xl lg:text-4xl font-black text-slate-900 leading-tight mb-6 tracking-tight">How Alloria <span className="italic">Works</span></h3>
-                            <p className="text-base text-slate-500 font-medium mb-10 leading-relaxed">
-                                Our platform integrates human intelligence with seamless connectivity to provide instant interpretation anywhere.
-                            </p>
-                        </motion.div>
-
-                        <div className="space-y-4">
-                            {steps.map((step, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.15 }}
-                                    className="group p-5 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 transition-all duration-500 flex items-start gap-5 cursor-default"
-                                >
-                                    <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:rotate-6 shadow-sm", step.bg, step.color)}>
-                                        {step.icon}
-                                    </div>
-                                    <div>
-                                        <h4 className="text-base font-black text-slate-800 mb-0.5 flex items-center gap-2">
-                                            <span className="text-brand-primary text-[10px] bg-brand-primary/5 px-1.5 py-0.5 rounded tracking-tighter">STEP 0{index + 1}</span>
-                                            {step.title}
-                                        </h4>
-                                        <p className="text-slate-500 text-[13px] font-medium leading-relaxed">{step.desc}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        <motion.button
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.6 }}
-                            className="mt-10 flex items-center gap-2 text-brand-primary font-black uppercase tracking-widest text-[11px] hover:gap-4 transition-all cursor-pointer group"
-                        >
-                            Connect To A Professional <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                        </motion.button>
-                    </div>
-
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-3xl font-[1000] text-slate-900 tracking-tight"
+                    >
+                        Interpretation <span className="text-brand-primary">Explained</span>
+                    </motion.h2>
                 </div>
+
+                {/* Steps Grid */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid md:grid-cols-3 gap-5 relative"
+                >
+                    {/* Connector Line (Desktop) */}
+                    <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-slate-100 -z-10" />
+
+                    {steps.map((step, index) => (
+                        <motion.div
+                            key={index}
+                            variants={itemVariants}
+                            className={cn(
+                                "group relative bg-white p-5 rounded-2xl border border-slate-100 hover:border-transparent transition-all duration-300 hover:-translate-y-1 shadow-sm",
+                                step.shadow,
+                                "hover:shadow-lg"
+                            )}
+                        >
+                            {/* Step Number Badge */}
+                            <div className="absolute top-3 right-3 text-[10px] font-black text-slate-200 group-hover:text-slate-300 transition-colors">
+                                0{index + 1}
+                            </div>
+
+                            <div className={cn(
+                                "w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 duration-300 mx-auto md:mx-0",
+                                step.bg,
+                                step.color
+                            )}>
+                                {step.icon}
+                            </div>
+
+                            <div className="text-center md:text-left">
+                                <h3 className="text-base font-bold text-slate-900 mb-1.5 group-hover:text-brand-primary transition-colors">
+                                    {step.title}
+                                </h3>
+                                <p className="text-[13px] text-slate-500 font-medium leading-relaxed">
+                                    {step.desc}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+
+                {/* Compact Footer CTA */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    className="mt-10 flex justify-center"
+                >
+                    <Link href="/contact-us" className="flex items-center gap-2 text-slate-400 font-bold text-[11px] uppercase tracking-widest hover:text-brand-primary transition-colors group cursor-pointer">
+                        Ready to connect?
+                        <span className="text-slate-900 group-hover:text-brand-primary flex items-center gap-1">
+                            Get Started <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                        </span>
+                    </Link>
+                </motion.div>
+
             </div>
         </section>
     );
