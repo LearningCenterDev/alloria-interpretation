@@ -3,11 +3,13 @@
 import { motion } from "motion/react";
 import { Monitor, Phone, MapPin, ArrowUpRight, CheckCircle2, Languages, AudioLines, Users2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Services() {
     const services = [
         {
             title: "Video Remote (VRI)",
+            slug: "vri",
             description: "On-demand visual interpretation perfect for healthcare and legal settings. HIPAA compliant encrypted streaming.",
             icon: <Monitor size={20} />,
             color: "bg-blue-50 text-blue-600",
@@ -15,6 +17,7 @@ export default function Services() {
         },
         {
             title: "Over-the-Phone (OPI)",
+            slug: "opi",
             description: "Instant audio connection 24/7. Ideal for quick customer service calls and emergency situations anywhere.",
             icon: <Phone size={20} />,
             color: "bg-purple-50 text-purple-600",
@@ -22,12 +25,15 @@ export default function Services() {
         },
         {
             title: "On-Site",
+            slug: "on-site",
             description: "Certified interpreters physically present for high-stakes conferences or complex medical procedures.",
             icon: <Users2 size={20} />,
             color: "bg-emerald-50 text-brand-primary",
             features: ["Physical presence", "Local experts", "Scheduled events"]
         }
     ];
+    // ... (omitting return section for brevity but the tool will apply correctly)
+
 
     return (
         <section id="services" className="py-16 bg-slate-50/50 relative overflow-hidden">
@@ -94,9 +100,11 @@ export default function Services() {
                                 ))}
                             </ul>
 
-                            <button className="flex items-center gap-2 text-[11px] font-black text-brand-primary group-hover:gap-3 transition-all uppercase tracking-widest cursor-pointer">
-                                Service Details <ArrowUpRight size={14} />
-                            </button>
+                            <Link href={`/services/${service.slug}`}>
+                                <button className="flex items-center gap-2 text-[11px] font-black text-brand-primary group-hover:gap-3 transition-all uppercase tracking-widest cursor-pointer">
+                                    Service Details <ArrowUpRight size={14} />
+                                </button>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
