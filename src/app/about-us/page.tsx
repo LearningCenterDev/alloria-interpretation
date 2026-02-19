@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Target, Heart, Award, Users, Search, Building2, Quote, Sparkles, Globe2 } from "lucide-react";
+import { Target, Heart, Award, Users, Search, Building2, Quote, Sparkles, Globe2, Eye, Compass, Trophy, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function AboutUsPage() {
     const values = [
@@ -82,9 +83,11 @@ export default function AboutUsPage() {
                                 }}
                                 className="w-[280px] sm:w-[320px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative border-[6px] border-white ring-1 ring-slate-100 z-10 transition-all duration-500"
                             >
-                                <img
+                                <Image
                                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000"
                                     alt="Our Team"
+                                    width={500}
+                                    height={350}
                                     className="w-full h-full object-cover group-hover/mission:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60" />
@@ -163,6 +166,71 @@ export default function AboutUsPage() {
                 </div>
             </section>
 
+            {/* Mission, Vision, Goal */}
+            <section className="px-6 py-20 bg-white relative overflow-hidden">
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+                        {[
+                            {
+                                title: "Our Vision",
+                                description: "To create a world where language is no longer a barrier to human connection, enabling every voice to be heard and understood globally.",
+                                icon: <Eye className="w-8 h-8" />,
+                                color: "text-brand-primary",
+                                bgColor: "bg-emerald-50/50",
+                                borderColor: "border-emerald-100/50"
+                            },
+                            {
+                                title: "Our Mission",
+                                description: "To provide seamless, culturally-aware interpretation services that empower individuals and organizations to communicate with clarity and confidence.",
+                                icon: <Compass className="w-8 h-8" />,
+                                color: "text-blue-600",
+                                bgColor: "bg-blue-50/50",
+                                borderColor: "border-blue-100/50"
+                            },
+                            {
+                                title: "Our Goal",
+                                description: "To set the global standard for interpretation quality, reaching every corner of the world while maintaining 100% accuracy and empathy.",
+                                icon: <Trophy className="w-8 h-8" />,
+                                color: "text-amber-600",
+                                bgColor: "bg-amber-50/50",
+                                borderColor: "border-amber-100/50"
+                            }
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1, duration: 0.5 }}
+                                className={cn(
+                                    "group relative p-10 rounded-[3rem] border transition-all duration-500",
+                                    "hover:shadow-[0_30px_60px_-12px_rgba(0,0,0,0.08)]",
+                                    item.bgColor,
+                                    item.borderColor
+                                )}
+                            >
+                                <div className={cn(
+                                    "w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-sm bg-white",
+                                    item.color
+                                )}>
+                                    {item.icon}
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight uppercase">
+                                    {item.title}
+                                </h3>
+                                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                                    {item.description}
+                                </p>
+
+                                <div className="absolute top-6 right-8 text-slate-200/50 pointer-events-none group-hover:text-slate-300/50 transition-colors">
+                                    <p className="text-4xl font-black italic">0{i + 1}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Global Reach */}
             <section className="px-6 py-16">
                 <div className="max-w-7xl mx-auto">
@@ -183,9 +251,9 @@ export default function AboutUsPage() {
                                 </p>
                                 <div className="space-y-6">
                                     {[
-                                        { label: "Headquarters", val: "New York, USA", icon: <Building2 className="w-5 h-5 text-brand-primary" /> },
-                                        { label: "Global Offices", val: "London, Tokyo, Berlin", icon: <Search className="w-5 h-5 text-brand-primary" /> },
-                                        { label: "Our Reach", val: "190+ Countries", icon: <Users className="w-5 h-5 text-brand-primary" /> },
+                                        { label: "Headquarters", val: "Denver, Colorado", icon: <Building2 className="w-5 h-5 text-brand-primary" /> },
+                                        { label: "Global Offices", val: "Gatthaghar, Nepal", icon: <Search className="w-5 h-5 text-brand-primary" /> },
+                                        { label: "Contact Us", val: "hello@press1.dev", icon: <Mail className="w-5 h-5 text-brand-primary" /> },
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-4">
                                             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
