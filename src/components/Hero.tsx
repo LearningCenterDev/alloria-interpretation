@@ -130,21 +130,23 @@ export default function Hero() {
                   Book Session
                 </motion.button>
               </Link>
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "rgb(248 250 252)",
-                  y: -2,
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3.5 bg-white custom-hover text-slate-700 border border-slate-200/80 font-black text-[13px] rounded-2xl flex items-center gap-2.5 transition-all tracking-wide cursor-pointer group shadow-sm"
-              >
-                How it works{" "}
-                <ArrowRight
-                  size={18}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </motion.button>
+              <Link href={"/how-it-works"}>
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgb(248 250 252)",
+                    y: -2,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3.5 bg-white custom-hover text-slate-700 border border-slate-200/80 font-black text-[13px] rounded-2xl flex items-center gap-2.5 transition-all tracking-wide cursor-pointer group shadow-sm"
+                >
+                  How it works{" "}
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </motion.button>
+              </Link>
             </motion.div>
 
             <motion.div
