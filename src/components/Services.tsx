@@ -36,7 +36,7 @@ export default function Services() {
 
 
     return (
-        <section id="services" className="py-16 bg-slate-50/50 relative overflow-hidden">
+        <section id="services" className="py-24 bg-white relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')]" />
 
@@ -45,7 +45,7 @@ export default function Services() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary font-black text-[10px] uppercase tracking-widest mb-4"
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-accent/10 text-brand-accent font-bold text-[10px] uppercase tracking-widest mb-4 border border-brand-accent/20"
                     >
                         <Languages size={12} /> Communication Hub
                     </motion.div>
@@ -54,16 +54,16 @@ export default function Services() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-3xl lg:text-4xl font-black text-slate-900 leading-tight mb-4 tracking-tight"
+                        className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 leading-tight mb-4"
                     >
-                        Bridging The <span className="text-brand-primary">Language Gap</span>
+                        Bridging The <span className="text-brand-accent italic font-medium">Language Gap</span>
                     </motion.h3>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-base text-slate-500 font-medium"
+                        className="text-lg text-slate-600 font-medium"
                     >
                         Precision-driven interpretation modes tailored for your specific industry requirements.
                     </motion.p>
@@ -78,31 +78,31 @@ export default function Services() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ y: -8 }}
-                            className="group relative p-8 rounded-[2rem] bg-white border border-slate-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 overflow-hidden"
+                            className="group relative p-8 rounded border border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-slate-50/50 rounded-bl-[4rem] -mr-12 -mt-12 group-hover:bg-brand-primary/5 transition-colors" />
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-slate-50 rounded-bl-[2rem] -mr-12 -mt-12 group-hover:bg-brand-accent/5 transition-colors" />
 
-                            <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-sm", service.color)}>
+                            <div className={cn("w-14 h-14 rounded-lg flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-sm", service.color)}>
                                 {service.icon}
                             </div>
 
-                            <h4 className="text-xl font-black text-slate-900 mb-3">{service.title}</h4>
-                            <p className="text-sm text-slate-500 leading-relaxed mb-6 font-medium line-clamp-2">{service.description}</p>
+                            <h4 className="text-2xl font-serif font-bold text-slate-900 mb-3">{service.title}</h4>
+                            <p className="text-slate-600 leading-relaxed mb-6 font-medium line-clamp-3">{service.description}</p>
 
                             <div className="w-full h-px bg-slate-100 mb-6" />
 
                             <ul className="space-y-3 mb-8">
                                 {service.features.map((feature) => (
-                                    <li key={feature} className="flex items-center gap-2 text-xs font-bold text-slate-700">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-brand-primary/30" />
+                                    <li key={feature} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
                                         {feature}
                                     </li>
                                 ))}
                             </ul>
 
                             <Link href={`/services/${service.slug}`}>
-                                <button className="flex items-center gap-2 text-[11px] font-black text-brand-primary group-hover:gap-3 transition-all uppercase tracking-widest cursor-pointer">
-                                    Service Details <ArrowUpRight size={14} />
+                                <button className="flex items-center gap-2 text-xs font-bold text-brand-primary hover:text-brand-accent group-hover:gap-3 transition-all uppercase tracking-widest cursor-pointer">
+                                    Service Details <ArrowUpRight size={16} />
                                 </button>
                             </Link>
                         </motion.div>

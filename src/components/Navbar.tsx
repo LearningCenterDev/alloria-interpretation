@@ -94,9 +94,9 @@ export default function Navbar() {
                         }}
                     >
                         <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-primary/20 transition-transform group-hover:scale-105 group-active:scale-95">
-                            <Languages size={20} />
+                            <Languages size={20} className="text-brand-accent" />
                         </div>
-                        <span className="font-bold text-xl tracking-tight text-slate-900">
+                        <span className="font-bold text-xl tracking-tight text-slate-900 font-serif">
                             Alloria
                         </span>
                     </Link>
@@ -124,9 +124,9 @@ export default function Navbar() {
                         </div>
                         <Link
                             href="/contact-us"
-                            className="px-6 py-2 bg-brand-primary hover:bg-emerald-600 text-white text-[13px] font-black rounded-xl shadow-md shadow-brand-primary/20 transition-all cursor-pointer uppercase tracking-widest"
+                            className="px-6 py-2.5 bg-brand-accent hover:bg-brand-accent-hover text-brand-primary text-xs font-bold rounded shadow-md transition-all cursor-pointer uppercase tracking-widest"
                         >
-                            Book Now
+                            Get a Quote
                         </Link>
                     </div>
 
@@ -159,8 +159,8 @@ export default function Navbar() {
                                             setIsMobileMenuOpen(false);
                                         }}
                                         className={cn(
-                                            "px-4 py-3 text-base font-semibold rounded-xl transition-all border border-transparent cursor-pointer flex items-center justify-between",
-                                            pathname === item.href ? "text-brand-primary bg-emerald-50" : "text-slate-700 hover:text-brand-primary hover:bg-slate-50 hover:border-slate-100"
+                                            "px-4 py-3 text-base font-semibold rounded transition-all border border-transparent cursor-pointer flex items-center justify-between",
+                                            pathname === item.href ? "text-brand-primary bg-slate-50" : "text-slate-700 hover:text-brand-primary hover:bg-slate-50 hover:border-slate-100"
                                         )}
                                     >
                                         {item.name}
@@ -169,9 +169,9 @@ export default function Navbar() {
                                 <Link
                                     href="/contact-us"
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="w-full py-3 mt-2 bg-brand-primary text-white text-center font-bold rounded-xl shadow-lg cursor-pointer text-sm uppercase tracking-widest"
+                                    className="w-full py-3 mt-2 bg-brand-accent hover:bg-brand-accent-hover text-brand-primary text-center font-bold rounded shadow-md cursor-pointer text-sm uppercase tracking-widest"
                                 >
-                                    Book Now
+                                    Get a Quote
                                 </Link>
                             </div>
                         </motion.div>
