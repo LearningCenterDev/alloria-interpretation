@@ -93,10 +93,13 @@ export default function Navbar() {
                             }
                         }}
                     >
-                        <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-primary/20 transition-transform group-hover:scale-105 group-active:scale-95">
+                        <div className="w-9 h-9 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-primary/20 transition-transform group-hover:scale-105 group-active:scale-95 border border-white/10">
                             <Languages size={20} className="text-brand-accent" />
                         </div>
-                        <span className="font-bold text-xl tracking-tight text-slate-900 font-serif">
+                        <span className={cn(
+                            "font-bold text-xl tracking-tight font-serif transition-colors",
+                            scrolled ? "text-slate-900" : "text-brand-accent"
+                        )}>
                             Alloria
                         </span>
                     </Link>
@@ -111,12 +114,15 @@ export default function Navbar() {
                                     onClick={(e) => handleNavClick(e, item.href)}
                                     className={cn(
                                         "text-[13px] font-bold transition-colors relative group cursor-pointer tracking-wide",
-                                        pathname === item.href ? "text-brand-primary" : "text-slate-600 hover:text-brand-primary"
+                                        pathname === item.href
+                                            ? (scrolled ? "text-brand-primary" : "text-brand-accent")
+                                            : (scrolled ? "text-slate-600 hover:text-brand-primary" : "text-slate-300 hover:text-white")
                                     )}
                                 >
                                     {item.name}
                                     <span className={cn(
-                                        "absolute -bottom-1 left-0 h-0.5 bg-brand-primary transition-all",
+                                        "absolute -bottom-1 left-0 h-0.5 transition-all",
+                                        scrolled ? "bg-brand-primary" : "bg-brand-accent",
                                         pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
                                     )} />
                                 </Link>
@@ -133,7 +139,10 @@ export default function Navbar() {
                     {/* Mobile Toggle */}
                     <motion.button
                         layout
-                        className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors border border-slate-100 cursor-pointer"
+                        className={cn(
+                            "md:hidden p-2 rounded-lg transition-colors border cursor-pointer",
+                            scrolled ? "text-slate-600 hover:bg-slate-100 border-slate-100" : "text-slate-300 hover:bg-white/10 border-white/20"
+                        )}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
