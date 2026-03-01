@@ -12,7 +12,7 @@ export default function ContactInfo() {
                 viewport={{ once: true }}
                 className="space-y-8"
             >
-                <h2 className="text-xl font-black text-slate-900 uppercase tracking-tight">Contact Information</h2>
+                <h2 className="text-2xl font-serif font-bold text-slate-900 tracking-tight">Contact Information</h2>
                 <div className="grid gap-5">
                     {[
                         { icon: <Phone size={18} />, label: "Call Us", val: "+1 (720) 243-6452", detail: "Mon-Fri from 8am to 5pm." },
@@ -21,7 +21,7 @@ export default function ContactInfo() {
                         { icon: <MessageSquare size={18} />, label: "Live Chat", val: "Available 24/7", detail: "Instant support for urgent needs." },
                     ].map((item, i) => (
                         <div key={i} className="flex gap-4 group">
-                            <div className="w-12 h-12 rounded-xl bg-white shadow-lg border border-slate-50 flex items-center justify-center text-brand-primary group-hover:scale-110 transition-transform">
+                            <div className="w-12 h-12 rounded bg-white shadow-lg border border-slate-50 flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform">
                                 {item.icon}
                             </div>
                             <div>
@@ -43,12 +43,12 @@ export default function ContactInfo() {
                 <div className="absolute top-0 right-0 p-6 opacity-10">
                     <Sparkles size={80} />
                 </div>
-                <h3 className="text-lg font-black mb-3 uppercase tracking-tight">Join Our Team?</h3>
+                <h3 className="text-xl font-serif font-bold mb-3 tracking-tight">Join Our Team?</h3>
                 <p className="text-slate-400 text-xs font-medium leading-relaxed mb-4">
                     Are you a certified interpreter looking to join a world-class network?
                     We're always looking for talented linguists.
                 </p>
-                <button className="text-brand-primary font-black text-[10px] uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+                <button className="text-brand-accent font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
                     Apply as Interpreter <Globe2 size={12} />
                 </button>
             </motion.div>
