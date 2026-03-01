@@ -75,7 +75,7 @@ export default function ServicesPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary font-black text-xs uppercase tracking-widest mb-6"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-accent/10 text-brand-accent font-bold text-[10px] uppercase tracking-widest mb-6 border border-brand-accent/20"
                         >
                             <Handshake size={14} /> Our Expertise
                         </motion.div>
@@ -83,10 +83,10 @@ export default function ServicesPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-3xl lg:text-4xl font-[1000] text-slate-900 leading-[1.1] mb-4 tracking-tight uppercase"
+                            className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 leading-tight mb-4"
                         >
                             Professional <br />
-                            <span className="text-brand-primary">Interpretation Solutions</span>
+                            <span className="text-brand-accent italic font-medium">Interpretation Solutions</span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -133,10 +133,10 @@ export default function ServicesPage() {
                             viewport={{ once: true }}
                             className="max-w-xl"
                         >
-                            <h2 className="text-2xl lg:text-4xl font-black text-slate-900 mb-4 tracking-tight uppercase">
-                                Our Service <span className="text-brand-primary">Spectrum</span>
+                            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-4">
+                                Our Service <span className="text-brand-accent italic font-medium">Spectrum</span>
                             </h2>
-                            <p className="text-sm text-slate-500 font-medium">
+                            <p className="text-base text-slate-600 font-medium">
                                 Comprehensive language solutions tailored for every industry and communication medium.
                             </p>
                         </motion.div>
@@ -144,9 +144,9 @@ export default function ServicesPage() {
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="flex items-center gap-2 text-brand-primary font-black text-[10px] uppercase tracking-widest bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 shadow-sm"
+                            className="flex items-center gap-2 text-brand-accent font-bold text-[10px] uppercase tracking-widest bg-brand-accent/5 px-4 py-2 rounded border border-brand-accent/20"
                         >
-                            <Sparkles size={14} className="animate-spin-slow" /> Full Coverage
+                            <Sparkles size={14} className="animate-pulse" /> Full Coverage
                         </motion.div>
                     </div>
 
@@ -171,11 +171,11 @@ export default function ServicesPage() {
                                     <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500", item.color)}>
                                         {item.icon}
                                     </div>
-                                    <h3 className="text-lg font-black text-slate-900 mb-3 uppercase tracking-tight group-hover:text-brand-primary transition-colors">{item.title}</h3>
-                                    <p className="text-xs text-slate-500 font-medium leading-relaxed mb-6">
+                                    <h3 className="text-2xl font-serif font-bold text-slate-900 mb-3 group-hover:text-brand-accent transition-colors">{item.title}</h3>
+                                    <p className="text-sm text-slate-600 font-medium leading-relaxed mb-6">
                                         {item.desc}
                                     </p>
-                                    <div className="flex items-center gap-2 text-brand-primary font-black text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2">
+                                    <div className="flex items-center gap-2 text-brand-primary font-bold text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2">
                                         Explore Service <ArrowRight size={14} />
                                     </div>
                                 </motion.div>
@@ -204,11 +204,11 @@ export default function ServicesPage() {
                                     <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-md", service.bgColor, service.color)}>
                                         {service.icon}
                                     </div>
-                                    <h2 className="text-2xl lg:text-3xl font-black text-slate-900 mb-3 tracking-tight">
+                                    <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-3">
                                         {service.title}
-                                        <span className="block text-brand-primary text-lg mt-0.5">({service.shortTitle})</span>
+                                        <span className="block text-brand-accent font-sans italic font-medium text-lg mt-1">({service.shortTitle})</span>
                                     </h2>
-                                    <p className="text-sm text-slate-500 font-medium leading-relaxed mb-5">
+                                    <p className="text-base text-slate-600 font-medium leading-relaxed mb-5">
                                         {service.description}
                                     </p>
                                     <div className="grid sm:grid-cols-2 gap-3">
@@ -221,9 +221,9 @@ export default function ServicesPage() {
                                     </div>
                                     <Link
                                         href={`/services/${service.slug}`}
-                                        className="mt-6 px-6 py-3 bg-slate-900 text-white font-black text-[10px] rounded-xl inline-flex items-center gap-2 hover:bg-brand-primary transition-all uppercase tracking-widest group shadow-md"
+                                        className="mt-6 px-6 py-3 bg-brand-accent text-brand-primary hover:bg-brand-accent-hover font-bold text-xs rounded shadow-md inline-flex items-center gap-2 transition-all uppercase tracking-widest group"
                                     >
-                                        Learn More <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                                        Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
                                 <div className={cn(

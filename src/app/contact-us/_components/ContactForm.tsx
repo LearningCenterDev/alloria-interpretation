@@ -56,18 +56,18 @@ export default function ContactForm() {
                 <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
-                        <input name="name" type="text" required placeholder="John Doe" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/5 outline-none transition-all text-xs font-bold shadow-sm" />
+                        <input name="name" type="text" required placeholder="John Doe" className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/10 outline-none transition-all text-xs font-bold shadow-sm" />
                     </div>
                     <div className="space-y-1.5">
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Work Email</label>
-                        <input name="email" type="email" required placeholder="john@company.com" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/5 outline-none transition-all text-xs font-bold shadow-sm" />
+                        <input name="email" type="email" required placeholder="john@company.com" className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/10 outline-none transition-all text-xs font-bold shadow-sm" />
                     </div>
                 </div>
 
                 <div className="space-y-1.5">
                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Subject / Service</label>
                     <div className="relative">
-                        <select name="mode" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/5 outline-none transition-all text-xs font-bold appearance-none cursor-pointer shadow-sm">
+                        <select name="mode" className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/10 outline-none transition-all text-xs font-bold appearance-none cursor-pointer shadow-sm">
                             <option value="General Inquiry">General Inquiry</option>
                             <option value="Video Remote (VRI)">Video Remote (VRI)</option>
                             <option value="Over-the-Phone (OPI)">Over-the-Phone (OPI)</option>
@@ -82,7 +82,7 @@ export default function ContactForm() {
 
                 <div className="space-y-1.5">
                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Your Message</label>
-                    <textarea name="notes" rows={4} required placeholder="How can we help you?" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/5 outline-none transition-all text-xs font-bold resize-none shadow-sm" />
+                    <textarea name="notes" rows={4} required placeholder="How can we help you?" className="w-full px-4 py-3 rounded bg-slate-50 border border-slate-100 focus:bg-white focus:border-brand-accent focus:ring-4 focus:ring-brand-accent/10 outline-none transition-all text-xs font-bold resize-none shadow-sm" />
                 </div>
 
                 <motion.button
@@ -91,10 +91,10 @@ export default function ContactForm() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className={cn(
-                        "w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-lg transition-all flex items-center justify-center gap-3",
+                        "w-full py-4 rounded font-bold text-xs uppercase tracking-[0.1em] shadow-md transition-all flex items-center justify-center gap-3",
                         status === "success"
                             ? "bg-green-600 text-white shadow-green-200"
-                            : "bg-brand-primary text-white shadow-brand-primary/20 hover:bg-emerald-600 border-none"
+                            : "bg-brand-accent text-brand-primary hover:bg-brand-accent-hover border-none"
                     )}
                 >
                     <AnimatePresence mode="wait">

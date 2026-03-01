@@ -46,14 +46,14 @@ export default function AboutUsPage() {
                             animate={{ opacity: 1, x: 0 }}
                             className="max-w-xl"
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-brand-primary font-black text-[10px] uppercase tracking-[0.2em] mb-8">
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold text-[10px] uppercase tracking-[0.2em] mb-8">
                                 <Sparkles size={12} /> Since 2024
                             </div>
-                            <h1 className="text-3xl lg:text-5xl font-[1000] text-slate-900 leading-[0.95] mb-5 tracking-tighter uppercase">
+                            <h1 className="text-4xl lg:text-6xl font-serif font-bold text-slate-900 leading-[1.1] mb-5">
                                 Our Mission Is <br />
-                                <span className="text-brand-primary">Global Unity.</span>
+                                <span className="text-brand-accent italic font-medium">Global Unity.</span>
                             </h1>
-                            <p className="text-base text-slate-500 font-medium leading-relaxed mb-6">
+                            <p className="text-lg text-slate-600 font-medium leading-relaxed mb-6">
                                 Alloria was founded on a simple belief: language should never be a barrier to
                                 human potential, healthcare, or justice.
                             </p>
@@ -135,10 +135,10 @@ export default function AboutUsPage() {
             <section className="px-6 py-16 bg-slate-50/50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-10">
-                        <h2 className="text-2xl lg:text-3xl font-black text-slate-900 mb-3 tracking-tight uppercase">
-                            Values That <span className="text-brand-primary">Drive Us</span>
+                        <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-3">
+                            Values That <span className="text-brand-accent italic font-medium">Drive Us</span>
                         </h2>
-                        <p className="text-sm text-slate-500 font-medium max-w-xl mx-auto">
+                        <p className="text-base text-slate-600 font-medium max-w-xl mx-auto">
                             Behind every connection we facilitate is a commitment to excellence and empathy.
                         </p>
                     </div>
@@ -156,8 +156,8 @@ export default function AboutUsPage() {
                                 <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-sm", value.bgColor, value.color)}>
                                     {value.icon}
                                 </div>
-                                <h3 className="text-lg font-black text-slate-900 mb-3">{value.title}</h3>
-                                <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                                <h3 className="text-2xl font-serif font-bold text-slate-900 mb-3">{value.title}</h3>
+                                <p className="text-sm text-slate-600 font-medium leading-relaxed">
                                     {value.description}
                                 </p>
                             </motion.div>
@@ -215,10 +215,10 @@ export default function AboutUsPage() {
                                 )}>
                                     {item.icon}
                                 </div>
-                                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight uppercase">
+                                <h3 className="text-3xl font-serif font-bold text-slate-900 mb-4">
                                     {item.title}
                                 </h3>
-                                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                                <p className="text-base text-slate-600 font-medium leading-relaxed">
                                     {item.description}
                                 </p>
 
@@ -241,11 +241,11 @@ export default function AboutUsPage() {
 
                         <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl lg:text-4xl font-black text-white mb-4 leading-tight tracking-tight uppercase">
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-4 leading-tight">
                                     Breaking Barriers <br />
-                                    <span className="text-brand-primary">Everywhere.</span>
+                                    <span className="text-brand-accent italic font-medium">Everywhere.</span>
                                 </h2>
-                                <p className="text-slate-400 font-medium text-sm leading-relaxed mb-6">
+                                <p className="text-slate-300 font-medium text-lg leading-relaxed mb-6">
                                     With a network of certified professionals across 6 continents, we are ready
                                     to support your communication needs 24/7, no matter the distance.
                                 </p>

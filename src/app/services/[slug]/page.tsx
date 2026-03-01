@@ -63,7 +63,7 @@ export default function ServiceDetail() {
                                 <span className="font-black uppercase text-[9px] tracking-wider">Linguistic Excellence</span>
                             </div>
 
-                            <h1 className="text-3xl lg:text-4xl font-[1000] text-slate-900 leading-tight mb-4 tracking-tight uppercase">
+                            <h1 className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 leading-tight mb-4">
                                 {data.title}
                             </h1>
 
@@ -76,7 +76,7 @@ export default function ServiceDetail() {
                                     <motion.button
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="px-6 py-3 bg-brand-primary text-white font-black text-[11px] rounded-xl flex items-center gap-2 transition-all uppercase tracking-widest shadow-md shadow-brand-primary/10"
+                                        className="px-6 py-3 bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-bold text-xs rounded flex items-center gap-2 transition-all uppercase tracking-widest shadow-md"
                                     >
                                         <Calendar size={16} /> Book Session
                                     </motion.button>
@@ -116,7 +116,7 @@ export default function ServiceDetail() {
                             <div className="p-6 rounded-2xl bg-slate-50/50 border border-slate-100">
                                 <div className="flex items-center gap-2 mb-3 text-brand-primary">
                                     <Info size={16} />
-                                    <h3 className="text-xs font-black uppercase tracking-widest">Quick Overview</h3>
+                                    <h3 className="text-xs font-bold uppercase tracking-widest text-slate-900">Quick Overview</h3>
                                 </div>
                                 <p className="text-slate-600 font-medium leading-relaxed text-sm">
                                     {data.description}
@@ -168,7 +168,7 @@ export default function ServiceDetail() {
                                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Need a demo?</h4>
                                     <p className="text-[11px] font-medium opacity-90 mb-4 leading-relaxed">Experience Alloria's {data.slug.toUpperCase()} in action with a 5-minute preview.</p>
                                     <Link href="/contact-us">
-                                        <button className="w-full py-2.5 bg-white text-brand-primary font-black text-[10px] rounded-lg uppercase tracking-widest hover:bg-slate-50 transition-colors">
+                                        <button className="w-full py-2.5 bg-brand-accent text-brand-primary font-bold text-xs rounded uppercase tracking-widest hover:bg-brand-accent-hover transition-colors">
                                             Request Trial
                                         </button>
                                     </Link>
@@ -189,7 +189,7 @@ export default function ServiceDetail() {
                             <p className="text-slate-400 text-[11px] font-medium tracking-wide italic">Join professional organizations worldwide relying on Alloria.</p>
                         </div>
                         <Link href="/contact-us">
-                            <button className="px-8 py-3 bg-white text-slate-900 font-black text-[10px] rounded-xl uppercase tracking-widest hover:bg-brand-primary hover:text-white transition-all cursor-pointer">
+                            <button className="px-8 py-3 bg-brand-accent text-brand-primary font-bold text-xs rounded uppercase tracking-widest hover:bg-brand-accent-hover transition-colors shadow-md cursor-pointer">
                                 Get Started
                             </button>
                         </Link>

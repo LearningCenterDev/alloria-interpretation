@@ -12,7 +12,7 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-brand-primary font-black text-[10px] uppercase tracking-widest mb-6"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold text-[10px] uppercase tracking-widest mb-6"
                 >
                     <Headset size={14} /> 24/7 Global Support
                 </motion.div>
@@ -20,9 +20,9 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-3xl lg:text-5xl font-[1000] text-slate-900 leading-tight mb-4 tracking-tight uppercase"
+                    className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 leading-tight mb-4"
                 >
-                    Book An <span className="text-brand-primary">Appointment.</span>
+                    Book An <span className="text-brand-accent italic font-medium">Appointment.</span>
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}

@@ -13,8 +13,8 @@ export default function Operations() {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="p-8 bg-white/90 backdrop-blur-md rounded-[2.5rem] shadow-2xl border border-white text-center max-w-md">
-                        <Globe2 className="w-12 h-12 text-brand-primary mx-auto mb-6 animate-pulse" />
-                        <h3 className="text-xl font-black text-slate-900 mb-2 uppercase tracking-tight">Global Operations</h3>
+                        <Globe2 className="w-12 h-12 text-brand-accent mx-auto mb-6 animate-pulse" />
+                        <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">Global Operations</h3>
                         <p className="text-slate-500 font-medium text-sm">
                             Supporting over 200 languages across every time zone, every single day.
                         </p>

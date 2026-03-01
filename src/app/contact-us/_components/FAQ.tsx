@@ -34,7 +34,7 @@ export default function FAQ() {
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 font-black text-[10px] uppercase tracking-widest mb-4">
                         <HelpCircle size={12} /> Common Questions
                     </div>
-                    <h2 className="text-2xl lg:text-3xl font-black text-slate-900 uppercase tracking-tight">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-900 tracking-tight">Frequently Asked Questions</h2>
                 </div>
 
                 <div className="space-y-3">
@@ -51,10 +51,10 @@ export default function FAQ() {
                                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
                                 className="w-full flex items-center justify-between p-5 text-left"
                             >
-                                <span className="text-sm font-black text-slate-900 pr-8">{faq.q}</span>
+                                <span className="text-base font-serif font-bold text-slate-900 pr-8">{faq.q}</span>
                                 <ChevronDown
                                     size={18}
-                                    className={cn("text-slate-400 transition-transform duration-300", openFaq === i && "rotate-180 text-brand-primary")}
+                                    className={cn("text-slate-400 transition-transform duration-300", openFaq === i && "rotate-180 text-brand-accent")}
                                 />
                             </button>
                             <AnimatePresence initial={false}>

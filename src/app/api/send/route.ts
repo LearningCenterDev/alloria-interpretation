@@ -1,18 +1,18 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 're_123');
 
 export async function POST(request: Request) {
-    try {
-        const { name, email, mode, notes } = await request.json();
+  try {
+    const { name, email, mode, notes } = await request.json();
 
-        const { data, error } = await resend.emails.send({
-            from: 'alloria.interpretation@resend.dev',
-            to: ['learningcenterdeveloper@gmail.com'], // TIP: This must be the email you signed up for Resend with, unless you have verified your own domain.
-            subject: `New Contact Form Submission from ${name}`,
-            replyTo: email,
-            html: `
+    const { data, error } = await resend.emails.send({
+      from: 'alloria.interpretation@resend.dev',
+      to: ['learningcenterdeveloper@gmail.com'], // TIP: This must be the email you signed up for Resend with, unless you have verified your own domain.
+      subject: `New Contact Form Submission from ${name}`,
+      replyTo: email,
+      html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
           <h2 style="color: #2FBF71; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">New Application Received</h2>
           
@@ -32,16 +32,16 @@ export async function POST(request: Request) {
           </div>
         </div>
       `,
-        });
+    });
 
-        if (error) {
-            console.error('Resend API Error:', error);
-            return NextResponse.json({ error: error.message }, { status: 500 });
-        }
-
-        return NextResponse.json(data);
-    } catch (err: any) {
-        console.error('Internal Server Error:', err);
-        return NextResponse.json({ error: err.message || 'Internal Server Error' }, { status: 500 });
+    if (error) {
+      console.error('Resend API Error:', error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
+
+    return NextResponse.json(data);
+  } catch (err: any) {
+    console.error('Internal Server Error:', err);
+    return NextResponse.json({ error: err.message || 'Internal Server Error' }, { status: 500 });
+  }
 }
