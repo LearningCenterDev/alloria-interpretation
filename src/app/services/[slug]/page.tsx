@@ -140,7 +140,7 @@ export default function ServiceDetail() {
                             <div className="grid md:grid-cols-3 gap-4">
                                 {data.useCases.map((use, i) => (
                                     <div key={i} className="p-5 rounded-2xl bg-slate-900 text-white">
-                                        <span className="text-[8px] font-black uppercase tracking-widest text-brand-primary mb-2 block">{use.industry}</span>
+                                        <span className="text-[8px] font-black uppercase tracking-widest text-brand-accent mb-2 block">{use.industry}</span>
                                         <p className="text-[11px] font-medium leading-relaxed opacity-80">{use.application}</p>
                                     </div>
                                 ))}

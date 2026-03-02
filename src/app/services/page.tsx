@@ -268,14 +268,14 @@ export default function ServicesPage() {
                     >
                         <h2 className="text-3xl lg:text-5xl font-black text-white mb-8 tracking-tight uppercase">
                             Ready to break the <br />
-                            <span className="text-brand-primary">Language Barrier?</span>
+                            <span className="text-brand-accent">Language Barrier?</span>
                         </h2>
                         <p className="text-slate-400 font-medium mb-12 max-w-xl mx-auto text-lg leading-relaxed">
                             Join thousands of organizations that trust Alloria for their mission-critical
                             interpretation needs.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <button className="px-10 py-5 bg-brand-primary text-white font-black text-sm rounded-2xl hover:bg-emerald-600 transition-all uppercase tracking-[0.2em] shadow-xl shadow-brand-primary/20">
+                            <button className="px-10 py-5 bg-brand-accent text-brand-primary font-black text-sm rounded-2xl hover:bg-brand-accent-hover transition-all uppercase tracking-[1px] shadow-xl shadow-brand-accent/20">
                                 Get Started Now
                             </button>
                             <button className="px-10 py-5 bg-white/10 hover:bg-white/20 text-white font-black text-sm rounded-2xl transition-all uppercase tracking-[0.2em] backdrop-blur-md border border-white/10">

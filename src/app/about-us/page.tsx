@@ -251,9 +251,9 @@ export default function AboutUsPage() {
                                 </p>
                                 <div className="space-y-6">
                                     {[
-                                        { label: "Headquarters", val: "Denver, Colorado", icon: <Building2 className="w-5 h-5 text-brand-primary" /> },
-                                        { label: "Global Offices", val: "Gatthaghar, Nepal", icon: <Search className="w-5 h-5 text-brand-primary" /> },
-                                        { label: "Contact Us", val: "hello@press1.dev", icon: <Mail className="w-5 h-5 text-brand-primary" /> },
+                                        { label: "Our Office", val: "Denver, Colorado", icon: <Building2 className="w-5 h-5 text-brand-accent" /> },
+                                        //{ label: "Global Offices", val: "Gatthaghar, Nepal", icon: <Search className="w-5 h-5 text-brand-primary" /> },
+                                        { label: "Contact Us", val: "hello@press1.dev", icon: <Mail className="w-5 h-5 text-brand-accent" /> },
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-4">
                                             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">

@@ -69,7 +69,7 @@ export default function HowItWorksPage() {
                     <div className="grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-16 items-center">
                         <div>
                             <h2 className="text-2xl lg:text-4xl font-black text-white mb-6 leading-tight uppercase tracking-tighter">
-                                Why Humans <span className="text-brand-primary">Win.</span>
+                                Why Humans <span className="text-brand-accent">Win.</span>
                             </h2>
                             <p className="text-slate-400 font-medium text-base mb-8 leading-relaxed">
                                 AI translates data; humans translate meaning. We bridge the critical gaps in
@@ -78,10 +78,10 @@ export default function HowItWorksPage() {
 
                             <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                                 {[
-                                    { title: "Zero Hallucination", icon: <ShieldCheck size={16} className="text-brand-primary" /> },
-                                    { title: "Cultural Context", icon: <Sparkles size={16} className="text-brand-primary" /> },
-                                    { title: "Emotional EQ", icon: <Handshake size={16} className="text-brand-primary" /> },
-                                    { title: "Subject Experts", icon: <Users size={16} className="text-brand-primary" /> },
+                                    { title: "Zero Hallucination", icon: <ShieldCheck size={16} className="text-brand-accent" /> },
+                                    { title: "Cultural Context", icon: <Sparkles size={16} className="text-brand-accent" /> },
+                                    { title: "Emotional EQ", icon: <Handshake size={16} className="text-brand-accent" /> },
+                                    { title: "Subject Experts", icon: <Users size={16} className="text-brand-accent" /> },
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="shrink-0">{item.icon}</div>
@@ -94,7 +94,7 @@ export default function HowItWorksPage() {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden border-4 border-white/5 bg-slate-800/50 p-8 space-y-6">
                                 <div className="flex items-center justify-between">
-                                    <div className="text-brand-primary font-black uppercase text-[10px] tracking-widest">Safety Protocol</div>
+                                    <div className="text-brand-accent font-black uppercase text-[10px] tracking-widest">Safety Protocol</div>
                                     <div className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 text-[8px] font-black uppercase tracking-tighter">Active</div>
                                 </div>
                                 <div className="space-y-3">
@@ -102,7 +102,7 @@ export default function HowItWorksPage() {
                                         <h5 className="font-bold text-white text-[11px] mb-1">STANDARD MACHINE TRANSLATION</h5>
                                         <p className="text-[10px] text-slate-500 leading-tight">Misses 40% of cultural nuances and specialized terminology in high-stakes environments.</p>
                                     </div>
-                                    <div className="p-4 rounded-xl bg-brand-primary/10 border border-brand-primary/20">
+                                    <div className="p-4 rounded-xl bg-brand-accent/10 border border-brand-accent/20">
                                         <div className="flex items-center gap-2 mb-1">
                                             <h5 className="font-bold text-white text-[11px] uppercase">ALLORIA HUMAN PROTOCOL</h5>
                                             <CheckCircle2 size={12} className="text-emerald-500" />

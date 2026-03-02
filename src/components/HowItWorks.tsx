@@ -46,17 +46,17 @@ export default function HowItWorks() {
         {
             title: "AI Dispatch",
             desc: "Engineered for industry-specific terminology and dialects.",
-            icon: <Sparkles size={14} className="text-brand-primary" />
+            icon: <Sparkles size={14} className="text-brand-accent" />
         },
         {
             title: "Human Core",
             desc: "Certified experts providing critical cultural context.",
-            icon: <UserCheck size={14} className="text-brand-primary" />
+            icon: <UserCheck size={14} className="text-brand-accent" />
         },
         {
             title: "Secure & Compliant",
             desc: "HIPAA, GDPR, and SOC2 certified operations.",
-            icon: <CheckCircle2 size={14} className="text-brand-primary" />
+            icon: <CheckCircle2 size={14} className="text-brand-accent" />
         }
     ];
 
